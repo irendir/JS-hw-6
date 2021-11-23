@@ -15,8 +15,6 @@ var students = [{
     marks: [{name: 'Physics', mark: 4.6}, {name: 'Math', mark: 3.6}, {name: 'Informatics', mark: 4.0}]
 }]
 
-var names = [];
-
 const setAvarage = () => {
     for(let student of students) {
         let sum = student.marks.reduce((acc, markObj) => {
@@ -29,20 +27,14 @@ const setAvarage = () => {
 
 const getAvarage = () => {
     setAvarage();
-    let sum = students.reduce((acc, student) => {
-        return acc + student.avarage;
-    }, 0)
+    let sum = students.reduce((acc, student) => acc + student.avarage, 0);
     let avarage = sum / students.length
     alert('Среднее арифм. по студентам: ' + (+avarage.toFixed(2)));
     //выдает на экран ср. арифм. оценку по всем студентам (взять avarage у каждого студента, сложить и разделить на к-во студентов)
 }
 
-const setNames = () => {
-    for(let student of students) {
-        names.push(student.name);
-    }
+const names = students.map((student) => student.name)
     //добавить в массив names (объявление на 18й строке) все имена из массива студентов
-}
 
 const getMax = () => {
     setAvarage();
@@ -55,9 +47,7 @@ const getMax = () => {
     //     }
     // }
     // alert(highestName);
-    var sortedStudents = students.sort((studentA, studentB) => {
-        return studentB.avarage - studentA.avarage; //0 1 -1
-    })
+    var sortedStudents = students.sort((studentA, studentB) => studentB.avarage - studentA.avarage);
     console.log(sortedStudents);
     alert(students[0].name);
     //вывести на экран имя студента с максимальной оценкой
