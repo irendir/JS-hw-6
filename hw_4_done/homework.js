@@ -1,14 +1,10 @@
 // console.table(countries);
 
 //в каждой стране есть поле population, вернуть из функции среднее арифм.
-const getAvaragePopulation = +(countries.reduce((acc, country) => {
-    return acc + country.population;
-}, 0)/countries.length).toFixed(2);
+const getAvaragePopulation = +(countries.reduce((acc, country) => acc + country.population, 0)/countries.length).toFixed(2);
 
 //вернуть список (массив) имен стран (поле name)
-const getNames = countries.map((country) => {
-    return country.name;
-})
+const getNames = countries.map((country) => country.name)
 
 const findCountry = () => {
     let names = getNames;
