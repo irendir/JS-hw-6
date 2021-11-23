@@ -29,7 +29,7 @@ const setAvarage = () => {
 
 const getAvarage = () => {
     setAvarage();
-    let = students.reduce((acc, student) => {
+    let sum = students.reduce((acc, student) => {
         return acc + student.avarage;
     }, 0)
     let avarage = sum / students.length
