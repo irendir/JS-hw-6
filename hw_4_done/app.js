@@ -17,34 +17,34 @@ var students = [{
 
 var names = [];
 
-function setAvarage() {
-    for(var student of students) {
-        var sum = student.marks.reduce(function(acc, markObj) {
+const setAvarage = () => {
+    for(let student of students) {
+        let sum = student.marks.reduce((acc, markObj) => {
             return acc + markObj.mark;
         }, 0)
-        var avarage = sum / student.marks.length;
+        let avarage = sum / student.marks.length;
         student.avarage = +avarage.toFixed(2);
     }
 }
 
-function getAvarage() {
+const getAvarage = () => {
     setAvarage();
-    var sum = students.reduce(function(acc, student) {
+    let = students.reduce((acc, student) => {
         return acc + student.avarage;
     }, 0)
-    var avarage = sum / students.length
+    let avarage = sum / students.length
     alert('Среднее арифм. по студентам: ' + (+avarage.toFixed(2)));
     //выдает на экран ср. арифм. оценку по всем студентам (взять avarage у каждого студента, сложить и разделить на к-во студентов)
 }
 
-function setNames() {
-    for(var student of students) {
+const setNames = () => {
+    for(let student of students) {
         names.push(student.name);
     }
     //добавить в массив names (объявление на 18й строке) все имена из массива студентов
 }
 
-function getMax() {
+const getMax = () => {
     setAvarage();
     // var highestMark = 0;
     // var highestName = '';
@@ -55,7 +55,7 @@ function getMax() {
     //     }
     // }
     // alert(highestName);
-    var sortedStudents = students.sort(function(studentA, studentB) {
+    var sortedStudents = students.sort((studentA, studentB) => {
         return studentB.avarage - studentA.avarage; //0 1 -1
     })
     console.log(sortedStudents);
@@ -73,11 +73,11 @@ function getMax() {
 //     //здесь вводим через prompt имя и проверяем есть ли оно в массиве names (функция возвращает true или false)
 // }
 
-function checkName() {
+const checkName = () => {
     setNames();
-    var name = prompt('Введите имя');
-    for(var student of students) {
-        var studentName = student.name.trim().toLowerCase();
+    let name = prompt('Введите имя');
+    for(let student of students) {
+        let studentName = student.name.trim().toLowerCase();
         if(studentName === name.toLowerCase().trim()) {
             return true;
         }
